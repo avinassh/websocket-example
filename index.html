@@ -1,0 +1,20 @@
+<html>
+   <head>
+      <title>Tornado Websocket Example</title>
+   </head>
+   <body>
+      <center><div>Received: <p id="value"></p></div></center>
+
+      <script type="text/javascript">
+        var ws = new WebSocket("ws://localhost:8888/ws");
+        ws.onopen = function() {
+           console.log('Socket Connection opened')
+        };
+        ws.onmessage = function (evt) {
+           console.log('Received: ', evt.data);
+           var textTag = document.getElementById('value')
+           textTag.innerText = evt.data;
+        };
+      </script>
+   </body>
+ </html>
